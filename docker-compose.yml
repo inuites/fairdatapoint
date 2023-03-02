@@ -1,0 +1,19 @@
+ # docker-compose.yml
+
+ version: '3'
+ services:
+
+     fdp:
+         image: fairdata/fairdatapoint:1.15
+
+     fdp-client:
+         image: fairdata/fairdatapoint-client:1.15
+         ports:
+             - 80:80
+         environment:
+             - FDP_HOST=fdp
+
+     mongo:
+         image: mongo:4.0.12
+         volumes:
+             - ./mongo/data:/data/db

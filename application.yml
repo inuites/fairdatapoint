@@ -1,0 +1,11 @@
+# application.yml
+repository:
+    type: 5
+    blazegraph:
+        url: http://blazegraph:8080/blazegraph
+
+spring:
+    data:
+        mongodb:
+            uri: mongodb://mongo:27017/fdp
+
