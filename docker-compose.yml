@@ -4,12 +4,12 @@
  services:
 
      fdp:
-         image: fairdata/fairdatapoint:1.15
+         image: fairdata/fairdatapoint:1.16
          volumes:
              - ./application.yml:/fdp/application.yml:ro
-             
+
      fdp-client:
-         image: fairdata/fairdatapoint-client:1.15
+         image: fairdata/fairdatapoint-client:1.16
          ports:
              - 80:80
          environment:
@@ -17,5 +17,14 @@
 
      mongo:
          image: mongo:4.0.12
+         ports:
+             - 27017:27017
          volumes:
              - ./mongo/data:/data/db
+
+     blazegraph:
+         image: metaphacts/blazegraph-basic
+         ports:
+             - 8080:8080
+         volumes:
+             - ./blazegraph:/blazegraph-data
